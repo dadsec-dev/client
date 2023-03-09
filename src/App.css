@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -28,6 +28,8 @@
   color: #61dafb;
 }
 
+
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -35,4 +37,143 @@
   to {
     transform: rotate(360deg);
   }
+} */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  margin-left: 3rem;
+  margin-right: 3rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer {
+  text-align: center;
+  padding: 3px;
+  background-color: coral;
+  color: white;
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+.loading {
+  text-align: center;
+  color: coral;
+  font-size: 1rem;
+}
+.g {
+  font-size: 1rem;
+}
+
+span {
+  color: coral;
+}
+
+.news-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1px;
+}
+
+.news-item {
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  height: 300px;
+  overflow: hidden;
+  margin: 10px;
+}
+
+.news-item h3 {
+  font-size: 20px;
+  margin-top: 0;
+}
+
+.news-item p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+.table {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 800px;
+  background: white;
+}
+
+.crypto-price-container {
+  background-color: #f5f5f5;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.crypto-container {
+  white-space: nowrap;
+  color: white;
+}
+
+.crypto-container > * {
+  display: inline-block;
+  justify-content: space-between;
+}
+
+.crypto-price-text {
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+}
+
+.crypto-price {
+  position: relative;
+  animation: move-left 10s linear infinite;
+}
+
+@keyframes move-left {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: -100%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .news-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .news-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  table {
+    font-size: 14px;
+  }
+}
+
+td,
+th {
+  text-align: center;
+  padding: 10px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+th {
+  background-color: coral;
+  color: white;
+}
+
+tbody tr:hover {
+  background-color: #ddd;
 }
