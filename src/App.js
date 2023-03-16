@@ -32,7 +32,7 @@ function App() {
   }, []);
 
   const getList = () => {
-    fetch("https://join-qhau.onrender.com")
+    fetch("https://gn.onrender.com/api/rates")
       .then((response) => response.json())
       .then((data) => {
         console.log(data); // log the data to console
@@ -77,13 +77,11 @@ function App() {
           <tbody>
             <tr>
               <td>usdBuy</td>
-              <td>{rate > 0 ? console.log("kkk") : "getting rates...."}</td>
+              <td>{Number(rate[0]) - update}</td>
             </tr>
             <tr>
               <td>usdSell</td>
-              <td>
-                {rate > 0 ? Number(rate[1]) + update : "getting rates...."}
-              </td>
+              <td>{Number(rate[1]) + update}</td>
             </tr>
             <tr>
               <td>gbpBuy</td>

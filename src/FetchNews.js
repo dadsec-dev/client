@@ -8,7 +8,7 @@ import axios from "axios";
 
 const fetchNews = async () => {
   try {
-    const response = await axios.get("http://localhost:5000/api/news"); // Update the URL to your server's URL
+    const response = await axios.get("https://jojio.herokuapp.com/api/news"); // Update the URL to your server's URL
     const allNews = response.data;
     return allNews;
   } catch (error) {
