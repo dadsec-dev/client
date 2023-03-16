@@ -1,17 +1,19 @@
 import "./App.css";
 import BlackMarketRatesTable from "./BlackMarketRatesTable";
-import CryptoPrice from "./CryptoPrices";
+// import CryptoPrice from "./CryptoPrices";
 import fetchNews from "./FetchNews";
 import NewsItem from "./NewsItem";
 import { useState, useEffect } from "react";
 import React from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import Headnews from "./Headnews";
-import HeadnewsItem from "./HeadnewsItem";
+// import Headnews from "./Headnews";
+// import HeadnewsItem from "./HeadnewsItem";
+// import { response } from "express";
 
 function App() {
   const [news, setNews] = useState([]);
+  const [rate, setRate] = useState([]);
 
   useEffect(() => {
     fetchNews()
@@ -20,11 +22,40 @@ function App() {
         // setLoading(false);
       })
       .catch((error) => {
-        // setLoading(false);
-        // setError(true);
         console.log(error);
       });
   }, []);
+
+  useEffect(() => {
+    getList();
+    console.log(rate);
+  }, []);
+
+  const getList = () => {
+    fetch("https://join-qhau.onrender.com")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data); // log the data to console
+        setRate(data);
+        console.log("rates");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const update = 3;
+
+  // const getList = () => {
+  //   fetch("http://localhost:5000/api/getList")
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       setRate(data);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     })
+  // }
 
   return (
     <div className="App">
@@ -35,10 +66,48 @@ function App() {
       </div> */}
 
       <Navbar />
+      {rate && (
+        <table className="table">
+          <thead>
+            <tr colSpan="2">
+              <th>Currency</th>
+              <th>Buy/Sell</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>usdBuy</td>
+              <td>{rate > 0 ? console.log("kkk") : "getting rates...."}</td>
+            </tr>
+            <tr>
+              <td>usdSell</td>
+              <td>
+                {rate > 0 ? Number(rate[1]) + update : "getting rates...."}
+              </td>
+            </tr>
+            <tr>
+              <td>gbpBuy</td>
+              <td>{Number(rate[2]) - update}</td>
+            </tr>
+            <tr>
+              <td>gbpSell</td>
+              <td>{Number(rate[3]) + update}</td>
+            </tr>
+            <tr>
+              <td>eurBuy</td>
+              <td>{Number(rate[4]) - update}</td>
+            </tr>
+            <tr>
+              <td>eurSell</td>
+              <td>{Number(rate[5]) + update}</td>
+            </tr>
+          </tbody>
+        </table>
+      )}
 
-      <div>
+      {/* <div>
         <BlackMarketRatesTable />
-      </div>
+      </div> */}
 
       <div className="news-container">
         {news && news.length > 0 ? (

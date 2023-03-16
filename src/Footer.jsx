@@ -4,7 +4,7 @@ function Footer() {
   return (
     <div>
       <footer className="footer">
-        <p className="g">GARLIC 📰</p>
+        <p className="g">GARLIC Portal</p>
 
         <a href="mailto:hege@example.com">
           <h1>Contact</h1>

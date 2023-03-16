@@ -76,6 +76,10 @@ span {
   grid-gap: 1px;
 }
 
+.intro {
+  color: black;
+}
+
 .news-item {
   background-color: white;
   border-radius: 5px;
